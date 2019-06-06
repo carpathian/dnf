@@ -1,2 +1,8 @@
 language: python
 
+branches:
+    only:
+    - travis
+
+install:
+    - pip install copr-cli
