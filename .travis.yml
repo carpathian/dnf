@@ -11,8 +11,8 @@ env:
 install:
 - pip install copr-cli
 - mkdir -p ~/.config
-- echo -e "$COPR_INI"
 - echo -e "$COPR_INI" > ~/.config/copr
+- cat ~/.config/copr
 
 script:
 - copr-cli buildscm --method tito_test --clone-url https://github.com/m-blaha/dnf mblaha/dnf
