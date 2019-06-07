@@ -1,8 +1,17 @@
 language: python
 
 branches:
-    only:
-    - travis
+  only:
+  - travis
 
 install:
-    - pip install copr-cli
+- pip install copr-cli
+- mkdir -p ~/.config
+- echo -e "$COPR_INI" > ~/.config/copr
+
+script:
+- copr-cli buildscm --method tito_test --clone-url https://github.com/m-blaha/dnf mblaha/dnf
+
+env:
+  global:
+    secure: V9kky0RjijM4JxnkPrD5E0aUPdqPlvb6Jp6hwdUEQ+MFe8JcfnD7OZvwDtomyQXbl3xkr31a5tWnybh0eCbiENWVqnA5Z+oBYFeuD5cmzpJba37C88tya4Iik2nc/yQX35aKH405ttFJtG2jALnT0XfwnJ5ojPWWDiVtrjP7O1N82QnwE+9mdZVq/HIiXyuWAlyFp6Ly7BTxaEVBJSU7QrsvRxjk11QnjrQkwdDLSrHDlXfBNrntxZ2RISUc51GsGFTaO3eG3z/y8dvX+RNB30B/Yr9sDNFUQ8IKS7dh0D5MOlxbynpoEoX4ukurSw1wS6elRUlBfkmivf0fzYBHp+HN3YucNZHypfZ6mD9F10IBDdKKdCLSgh45/kS7n7nuqMVA+6Voib3IllvDL7E/ce5ddUKIHwi96E6YG/LwFzExGcKWHpBYcC24lwn00RHHZj23Rk4bSm4y8ri2WCFeMdLi7bbSSASqvsql4aJrSOclSZR0jN2z/4Isu30mxjAqh44Y9Kx3Z0f3wqNpH/VzH89nRmB0VI/XDE/WZIIACbsT+y9szGy9GvnMo3izuogH/FNdjq2rQC9EkKrTULx5bKANBYUbEZQ6VMKKRzymvGlbsKELJrXJcIuxZnC6mBuxrqadDpaddw04Nqa+eeg/H5xjoUMzEMeH4p+0uVlG3YA=
