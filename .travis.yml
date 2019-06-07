@@ -13,6 +13,7 @@ install:
 - mkdir -p ~/.config
 - echo -e "$COPR_INI" > ~/.config/copr
 - cat ~/.config/copr
+- python debug.py
 
 script:
 - copr-cli buildscm --method tito_test --clone-url https://github.com/m-blaha/dnf mblaha/dnf
