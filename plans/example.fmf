@@ -1,0 +1,5 @@
+summary:
+    Essential command line features
+execute:
+    how: shell
+    script: dnf -y install acpi
